@@ -42,13 +42,21 @@ It must be used ***solely*** by the `ServiceManager` (if you need to mock the se
 ### Screens & Use cases
 
 I have done it as simply as possible, the UI/UX design is out of scope.
-The app has just one app-bar and one screen: 
+The app has just one app-bar, one modal dialog (for login/register) and one screen: 
 
 - `Todo List`: The list of the Todos 
+
+Any error is shown in a red snackbar at the bottom of the screen.
 
 #### App Bar
 
 It shows one button for creating a new todo and a tappable avatar (to logout).
+
+#### Login/Register
+
+This modal dialog is shown whenever the user is not logged and cannot be dismissed.
+It handles both the login and the registration of a new user.
+Any error on a specific field is shown highlighting the field and displaying the error message inside it.
 
 #### Todo List
 
@@ -62,6 +70,23 @@ This sheet shows:
 - a TextInput for the description
 - a Switch for the value "done"
 - 3 buttons: Save, Delete, Close.
+
+### Code Structure
+
+The source code is organized in separated directories:
+
+- `managers`. It contains the managers.
+- `messages`. It contains the definition of generic request and generic response.
+- `models`. It contains all the models used by the app. In our case, just `TodoModel`, `UserModel` and `AuthenticationResponseModel`.
+- `view_models`. It contains all the view-models used by the app. In our case, just `HomeViewModel` and `LoginViewModel`. 
+- `pages`. It contains all the pages (i.e. the containers) used by the app. In our case, just `HomePage`.
+- `widgets`. It contains all the generic views used by the pages. In our case we have:
+
+  - `AppBar`
+  - `LoginView`
+  - `TodoView`
+  - `TodoCard`
+
 
 ### Notes
 
