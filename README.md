@@ -32,6 +32,11 @@ In particular, it ***persists*** locally any registered user (because the login 
 
 At startup, it is asked to `rehydrate`, so the user doesn't need to login every time.
 
+Data are saved locally using the `EncryptedStorage` plugin (https://github.com/emeraldsanto/react-native-encrypted-storage).
+For the sake of security, tokens should always be saved directly in keychain... but this is just an exercise, not a real project.
+This plugin is a wrapper around `SharedPreferences` and `Keychain` to provide a secure alternative to `Async Storage`.
+I hope you will forgive me for this defeaturing.
+
 3. `NetworkManager`. 
 
 It is just responsible for actually doing the calls via http.  
@@ -84,10 +89,10 @@ The source code is organized in a few separated folders:
 - `pages`. It contains all the pages (i.e. the containers) used by the app. In our case, just `HomePage`.
 - `widgets`. It contains all the generic views used by the pages. In our case we have:
 
-  - `AppBar`. The app bar widget
-  - `LoginView`. The Login/Register widget shown modally
-  - `TodoView`. The widget responsible for the editing
-  - `TodoCard`. The widget responsible for displaying the todo details into the list
+  - `AppBar` The app bar widget
+  - `LoginView` The Login/Register widget shown modally
+  - `TodoView` The widget responsible for the editing
+  - `TodoCard` The widget responsible for displaying the todo details into the list
 
 This structure is very easy because the application is very simple.
 Normally, in real-life projects, I use to have a `scenes` folder and a number of sub-folders, one for each use-case.
