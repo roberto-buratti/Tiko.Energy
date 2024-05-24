@@ -7,6 +7,8 @@ The app has been implemented using react-native and tested on iOS (on several ph
 
 The app has been implement using the **MVVM** design pattern, so each page delegates all the business logic to it `viewModel`.
 
+Moreover, it has been widely used the **Delegate** design pattern, so each interaction between services can be easily mocked and tested.
+
 The `viewModel` is always injected from outside, so every scene is unit-testable. I'm aware that it was not requested but this is the way I normally work.
 
 I reused somewhere code I wrote for other apps but most of the code if fresh new.  
@@ -73,7 +75,7 @@ This sheet shows:
 
 ### Code Structure
 
-The source code is organized in separated directories:
+The source code is organized in a few separated folders:
 
 - `managers`. It contains the managers.
 - `messages`. It contains the definition of generic request and generic response.
@@ -82,11 +84,14 @@ The source code is organized in separated directories:
 - `pages`. It contains all the pages (i.e. the containers) used by the app. In our case, just `HomePage`.
 - `widgets`. It contains all the generic views used by the pages. In our case we have:
 
-  - `AppBar`
-  - `LoginView`
-  - `TodoView`
-  - `TodoCard`
+  - `AppBar`. The app bar widget
+  - `LoginView`. The Login/Register widget shown modally
+  - `TodoView`. The widget responsible for the editing
+  - `TodoCard`. The widget responsible for displaying the todo details into the list
 
+This structure is very easy because the application is very simple.
+Normally, in real-life projects, I use to have a `scenes` folder and a number of sub-folders, one for each use-case.
+Any sub-folder groups all the pages and the view-models belonging to the same use-case. 
 
 ### Notes
 
@@ -97,5 +102,6 @@ Inside the code, relevant comments are marked with a leading
 `// [ROB]`
 
 ### Known Issues
+
 
 
